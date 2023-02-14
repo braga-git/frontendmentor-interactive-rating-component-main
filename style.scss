@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root{
+    --primary: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --btn-color: hsla(216, 12%, 54%, 0.155);
+    --btn-selected-color: hsl(217, 12%, 63%);
+    --text-color: hsl(216, 12%, 54%);
+    --card-color: hsl(213, 19%, 18%);
+    --bg-color: hsl(216, 12%, 8%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--bg-color);
+
+    height: 100vh;
+    display: grid;
+    place-content: center;
+
+    font-size: 15px;
+    font-family: 'Overpass', sans-serif;
+}
+
+.card{
+    background-color: var(--card-color);
+
+    width: 400px;
+    height: 405px;
+    padding: 30px;
+    border-radius: 30px;
+    
+    .cardTitle{
+        color: var(--white);
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    
+    .cardDescription{
+        color: var(--text-color);
+    }
+}
+
+
+#submitCard{
+    .star{
+        display: grid;
+        place-content: center;
+        
+        border-radius: 50%;
+        
+        background-color: hsla(216, 12%, 54%, 0.101);
+        margin-bottom: 30px;
+        padding: 20px;
+        width: 45px;
+        height: 45px;
+        
+        img{
+            padding-top: 1px;
+            width: 15px;
+        }
+    }
+
+    #ratingForm{
+        color: var(--text-color);
+        margin-top: 10px;
+        
+        .inputs{
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            
+            label{
+                display: grid;
+                place-content: center;
+                
+                background-color: var(--btn-color);
+                border-radius: 50px;
+                width: 50px;
+                height: 50px;
+                padding-top: 5px;
+                
+            }
+            
+            
+            input[type="radio"]{
+                display: none;
+                
+                &:checked + label {
+                    background-color: var(--btn-selected-color);
+                    color: var(--white);
+                }
+                
+                &:hover + label{
+                    background-color: var(--primary);
+                    color: var(--white);
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .submitBtn{
+            background-color: var(--primary);
+            margin-top: 30px;  
+            width: 100%;
+            padding: 13px 0px 8px 0px;
+            border: none;
+            border-radius: 50px;
+            
+            text-transform: uppercase;
+            letter-spacing: .15rem;
+            color: var(--white);
+            
+            &:hover{
+                color: var(--primary);
+                background-color: var(--white);
+            }
+        }
+        
+    }
+    
+}
+
+#thanksCard{
+    display: none;
+    text-align: center;
+    align-items: center;
+    
+    img{
+        padding-top: 15px;
+        width: 150px;
+    }
+    
+    #selectResult{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: var(--btn-color);
+        width: max-content;
+        border-radius: 50px;
+        color: var(--primary);
+        
+        padding: 6px 15px 1px 15px;
+    }
+}
+
+
+.attribution{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    
+    a{
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+        
+        &:hover{
+            color: var(--white);
+        }
+    }
+}
+
+@media (max-width: 430px){
+    .card{
+        width: 350px;
+        height: auto;
+        padding: 25px ;
+        border-radius: 15px;    
+
+        .cardTitle{
+            font-size: 1.58rem;
+        }
+    }
+
+    #submitCard {
+
+        .star{
+            margin-bottom: 15px;
+        }
+
+        #ratingForm{
+            .inputs {
+                gap: 0;
+
+                label{
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+
+            .submitBtn{
+                padding: 16px 0px 10px 0px;
+                margin-bottom: 10px;
+                margin-top: 25px;
+            }
+        }
+    }
+
+    #thanksCard{
+        img{
+            padding-top: 8px;
+        }
+    }
+}
